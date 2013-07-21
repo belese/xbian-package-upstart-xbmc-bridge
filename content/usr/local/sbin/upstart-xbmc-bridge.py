@@ -94,11 +94,9 @@ class xbmc_upstart_bridge :
     def main_loop(self) :
         while not self.stopped :
             data = json.loads(self.s.recv(BUFFER_SIZE))
-            #try :
-            if True :
+            try :            
                 self.onEvent(data)  
-            else :
-            #except :
+            except :
                 logging.error('Cannot parse event : %s '%str(data))            
                 
     def onEvent(self,data) :
